@@ -435,6 +435,4 @@ void RunTests()
 	GetGlobalTestCollector().RunAll();
 
 #endif
-
-	return 0;
 }
