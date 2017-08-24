@@ -5,6 +5,7 @@
 #include <map>
 #include <iostream>
 #include <cmath>
+#include <cstring>
 
 ///
 /// Asserts different types of conditions and performs actions
