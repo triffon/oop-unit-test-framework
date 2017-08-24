@@ -348,7 +348,12 @@ public:
 	///
 	TestCase* FindFirst(const char* pDescription)
 	{
-		// TODO: write the code
+		for (std::size_t i = 0; i < m_Tests.size(); ++i)
+		{
+			if (strcmp(m_Tests[i].GetDescription(), pDescription) == 0)
+				return &m_Tests[i];
+		}
+
 		return NULL;
 	}
 };
@@ -374,6 +379,10 @@ public:
         (*it).second.Add(test);
     }
 
+
+	///
+	/// Runs all tests in all suites
+	///
     void RunAll()
     {
         std::map<std::string, TestSuite>::iterator it;
@@ -382,17 +391,40 @@ public:
             (*it).second.RunAll();
     }
 
+
+	///
+	/// Runs the first case with description equal to pTestCaseName
+	///
+	/// The function searches all suites for a test called pTestCaseName
+	/// If such a test case exists, the first one found will be ran.
+	/// If no such test can be found, the function will execute no tests.
+	///
 	void Run(const char* pTestCaseName)
 	{
 		std::map<std::string, TestSuite>::iterator it = m_TestSuites.begin();
-		TestCase* pc;
+		TestCase* pc = NULL;
 
 		for (; it != m_TestSuites.end(); ++it)
 		{
 			pc = (*it).second.FindFirst(pTestCaseName);
+			
 			if (pc)
-				pc->Run();
+				break;
 		}
+
+		if (pc)
+		{
+			try
+			{
+				pc->Run();
+				std::cout << pc->GetDescription();
+			}
+			catch (std::exception&)
+			{
+				std::cout << "Failed!";
+			}
+		}
+
 	}
 };
 
