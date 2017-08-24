@@ -4,6 +4,7 @@
 #include <vector>
 #include <map>
 #include <iostream>
+#include <cmath>
 
 ///
 /// Asserts different types of conditions and performs actions
