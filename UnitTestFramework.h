@@ -201,7 +201,7 @@ public:
 		AssertCondition(!(A < B));
 		AssertCondition(!(B < A));
 
-		AssertCondition(À <= B);
+		AssertCondition(A <= B);
 		AssertCondition(B <= A);
 
 		AssertCondition(!(B > A));
