@@ -421,7 +421,7 @@ public:
 };
 
 
-int main(int argc, char* argv[])
+void RunTests() 
 {
 
 #ifdef READ_TEST_CASE_NAME_FROM_STDIN
