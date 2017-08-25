@@ -27,10 +27,19 @@ private:
 
 public:
     ///
-    /// Tests whether two values are equal using the assignment operator (==)
+    /// Tests whether two values of the same type are equal using the assignment operator (==)
     ///
     template <typename T>
     static void AreEqual(const T& left, const T& right)
+    {
+        AssertCondition(left == right);
+    }
+
+    ///
+    /// Tests whether two values of different types are equal using the assignment operator (==)
+    ///
+    template <typename T, typename U>
+    static void AreEqual(const T& left, const U& right)
     {
         AssertCondition(left == right);
     }
@@ -66,10 +75,19 @@ public:
 
 
     ///
-    /// Tests whether two values are equal using a negation of the assignment operator (==)
+    /// Tests whether two values of the same type are equal using a negation of the assignment operator (==)
     ///
     template <typename T>
     static void AreNotEqual(const T& left, const T& right)
+    {
+        AssertCondition( ! (left == right));
+    }
+
+    ///
+    /// Tests whether two values of different types are equal using a negation of the assignment operator (==)
+    ///
+    template <typename T, typename U>
+    static void AreNotEqual(const T& left, const U& right)
     {
         AssertCondition( ! (left == right));
     }
