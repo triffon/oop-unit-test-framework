@@ -32,9 +32,9 @@ public:
     m_Seconds = seconds;
   }
 
-  Timestamp& operator+= (Timestamp const& ts)
+  Timestamp& operator+= (unsigned long seconds)
   {
-    SetValue(GetValue() + ts.GetValue());
+    SetValue(GetValue() + seconds);
     return *this;
   }
 

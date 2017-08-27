@@ -57,13 +57,11 @@ TEST_CASE("Timestamp", Timestamp_InputStreamSetsData)
 TEST_CASE("Timestamp", Timestamp_AdditionAssignmentChangesData)
 {
   Timestamp ts1(10000ul);
-  const Timestamp ts2(20000ul);
-  const Timestamp ts3(30000ul);
 
-  ts1 += ts2;
+  ts1 += 20000ul;
   Assert::AreEqual(ts1.GetValue(), 30000ul);
 
-  (ts1 += ts2) += ts3;
+  (ts1 += 20000ul) += 30000ul;
   Assert::AreEqual(ts1.GetValue(), 80000ul);
 
 }
